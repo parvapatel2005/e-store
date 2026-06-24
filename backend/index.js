@@ -14,11 +14,11 @@ const ContactRouter = require('./routes/ContactRoute.js');
 const CategoryRouter = require('./routes/CategoryRouter.js');
 const AddToCartRouter = require('./routes/addToCartRoute.js')
 const OrderRouter = require('./routes/orderRoutes.js')
-
+console.log("Line 1")
 mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log('Connected to MongoDB'))
   .catch((err) => console.error('Error connecting to MongoDB:', err));
-
+console.log("Line 2")
 app.use(cors({
   origin: "*"
 }));
