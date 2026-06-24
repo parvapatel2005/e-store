@@ -98,6 +98,8 @@ app.use('/api/contact', ContactRouter);
 app.use('/api', AddToCartRouter);
 app.use('/api', OrderRouter);
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-})
+// app.listen(port, () => {
+//   console.log(`Example app listening on port ${port}`)
+// })
+
+module.exports = app;
