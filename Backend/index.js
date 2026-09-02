@@ -34,7 +34,7 @@ const startServer = async () => {
 startServer();
 
 
-app.use(cors({origin: ["https://e-stores-orcin.vercel.app","http://localhost:5173"]}));
+app.use(cors({origin: ["https://e-store-8pkd.vercel.app/","http://localhost:5173"]}));
 
 app.use(express.json());
 app.use('/upload',express.static('upload'));
