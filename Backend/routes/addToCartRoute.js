@@ -88,8 +88,12 @@ router.put('/update-quantity', protect, async (req, res) => {
         const itemIndex = cart.items.findIndex((item) => item.product && item.product.toString() === productId);
 
         if(itemIndex > -1){
-            cart.items[itemIndex].quantity = quantity;
-            cart.save();
+            if(quantity <= 0){
+                cart.items.splice(itemIndex, 1);
+            }else{
+                cart.items[itemIndex].quantity = quantity;
+            }
+            await cart.save();
         }
 
         return res.status(200).json({message: "Product quantity updated succesfully"});

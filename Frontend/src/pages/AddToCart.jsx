@@ -158,7 +158,7 @@ const AddToCart = () => {
                                         <p>Product Price: {item.product.price * item.quantity}</p>
                                         <div className='d-flex gap-3 align-items-baseline'>
                                             Quantity:
-                                            <button onClick={()=>updateQuantity(item.product._id,item.quantity-1)}>-</button>
+                                            <button onClick={() => item.quantity === 1 ? removeItem(item._id) : updateQuantity(item.product._id, item.quantity - 1)}>-</button>
                                             <p>{item.quantity}</p>
                                             <button onClick={()=>updateQuantity(item.product._id,item.quantity+1)}>+</button>
                                         </div>
