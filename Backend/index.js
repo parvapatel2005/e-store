@@ -15,11 +15,25 @@ const CategoryRouter = require('./routes/CategoryRouter.js');
 const AddToCartRouter = require('./routes/addToCartRoute.js')
 const OrderRouter = require('./routes/orderRoutes.js')
 
-console.log("Line 1");
-mongoose.connect(process.env.MONGO_URI)
-  .then(() => console.log('Connected to MongoDB'))
-  .catch((err) => console.error('Error connecting to MongoDB:', err));
-console.log("Line 2");
+const startServer = async () => {
+  try {
+    await mongoose.connect(process.env.MONGO_URI);
+
+    console.log("Connected to MongoDB");
+
+    app.listen(port, () => {
+      console.log(`Server running on port ${port}`);
+    });
+
+  } catch (err) {
+    console.error("MongoDB Connection Error:", err);
+    process.exit(1);
+  }
+};
+
+startServer();
+
+
 app.use(cors({origin: ["https://e-stores-orcin.vercel.app","http://localhost:5173"]}));
 
 app.use(express.json());
@@ -98,6 +112,3 @@ app.use('/api/contact', ContactRouter);
 app.use('/api', AddToCartRouter);
 app.use('/api', OrderRouter);
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-})
