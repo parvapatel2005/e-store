@@ -8,5 +8,5 @@ const razorpayInstance = new Razorpay({
 });
 
 console.log("Razorpay instance created with key_id:", process.env.RAZORPAY_KEY_ID);
-console.log("Razorpay instance created with key_secret:", process.env.RAZORPAY_KEY_SECRET);
+
 module.exports = razorpayInstance;
