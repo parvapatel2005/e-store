@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useState } from 'react'
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import axiosInstance from '../service/axiosInstance';
 
 const ProductDetail = () => {
 
@@ -21,6 +22,18 @@ const ProductDetail = () => {
     useEffect(() => {
         fetchProductDetail();
     }, []);
+
+    const handleAddToCart = async () => {
+        try {
+            const response = await axiosInstance.post('/api/add-to-cart', {
+                productId: id,
+                quantity: 1,
+            });
+            alert(response.data.message);
+        } catch (error) {
+            console.error('Error adding product to cart:', error);
+        }
+    };
 
     return (
         <>
@@ -54,6 +67,13 @@ const ProductDetail = () => {
                         <h3 className="mt-4 fw-bold text-success">
                             Price: ${product?.price}
                         </h3>
+                        <button
+                            className="btn btn-primary mt-3"
+                            onClick={handleAddToCart}
+                            disabled={!product}
+                        >
+                            Add to Cart
+                        </button>
                     </div>
 
                 </div>
