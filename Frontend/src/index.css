@@ -223,6 +223,55 @@ body {
 .about-values h2 { margin: 1rem 0 0.5rem; font-size: 1.05rem; }
 .about-values p { max-width: 240px; margin: 0; color: var(--muted); font-size: 0.9rem; line-height: 1.65; }
 
+.profile-page {
+	display: grid;
+	min-height: calc(100vh - 76px);
+	place-items: center;
+	padding-top: 3rem;
+	padding-bottom: 5rem;
+}
+.profile-card {
+	width: min(100%, 680px);
+	overflow: hidden;
+	border: 1px solid var(--line);
+	border-radius: 12px;
+	background: white;
+	box-shadow: 0 18px 45px rgba(23, 37, 45, 0.08);
+}
+.profile-banner {
+	height: 130px;
+	background: linear-gradient(120deg, var(--blue-dark), #54a69a);
+}
+.profile-content { position: relative; padding: 0 clamp(1.5rem, 6vw, 4rem) 3rem; }
+.profile-avatar {
+	display: grid;
+	width: 92px;
+	height: 92px;
+	margin-top: -46px;
+	margin-bottom: 1.5rem;
+	place-items: center;
+	border: 6px solid white;
+	border-radius: 50%;
+	background: var(--mint);
+	color: var(--blue-dark);
+	font-family: 'Playfair Display', serif;
+	font-size: 2.8rem;
+	font-weight: 700;
+}
+.profile-content h1 { margin: 0.7rem 0 0.55rem; font-family: 'Playfair Display', serif; font-size: clamp(2rem, 5vw, 3rem); }
+.profile-welcome { max-width: 480px; margin: 0; color: var(--muted); line-height: 1.7; }
+.profile-details {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 1rem;
+	margin-top: 2.5rem;
+	border-top: 1px solid var(--line);
+	padding-top: 1.5rem;
+}
+.profile-detail { display: grid; gap: 0.45rem; }
+.profile-detail-label { color: var(--muted); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
+.profile-detail strong { overflow-wrap: anywhere; font-size: 0.98rem; }
+
 @media (max-width: 767px) {
 	.home-hero { grid-template-columns: 1fr; padding-top: 2.5rem; }
 	.home-image-wrap { max-width: 520px; margin: 0 auto; }
@@ -238,4 +287,6 @@ body {
 	.about-values { grid-template-columns: 1fr; gap: 1.25rem; }
 	.about-values > div { border-right: 0; border-bottom: 1px solid var(--line); padding-bottom: 1.25rem; }
 	.about-values > div:last-child { border-bottom: 0; }
+	.profile-page { padding-top: 2rem; }
+	.profile-details { grid-template-columns: 1fr; }
 }
