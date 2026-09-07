@@ -34,8 +34,15 @@ const Shop = () => {
     }
 
     return (
-        <>
-        <div className="d-flex container flex-wrap justify-content-between ">
+        <main className="shop-page container">
+            <div className="shop-heading">
+                <div>
+                    <span className="eyebrow">NexCart / Shop</span>
+                    <h1>Find your next favourite.</h1>
+                </div>
+                <p>Browse our latest selection, picked for easy everyday living.</p>
+            </div>
+            <div className="product-grid">
             {
                 products.map((item) => {
                     return (
@@ -43,8 +50,8 @@ const Shop = () => {
                     )
                 })
             }
-        </div>
-        </>
+            </div>
+        </main>
     )
 }
 

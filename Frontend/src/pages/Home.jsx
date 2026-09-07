@@ -23,17 +23,28 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="d-flex container">
-        <div className="col-6 align-self-center p-5">
-            <h1>Hello, {userName}</h1>
-            <p>Welcome to the NexCart. Shop a wide range of products at competitive prices.</p>
-            <button className="btn btn-primary" onClick={() => navigate('/shop')}>Shop Now</button>
+    <main className="home-page">
+      <section className="home-hero container">
+        <div className="home-copy">
+          <span className="eyebrow">Thoughtful shopping, made simple</span>
+          <h1>Hello, {userName || 'there'}<span>.</span></h1>
+          <p>Find everyday essentials and standout pieces in one easy-to-browse collection.</p>
+          <button className="btn btn-primary home-cta" onClick={() => navigate('/shop')}>
+            Explore the collection <span aria-hidden="true">→</span>
+          </button>
+          <div className="home-highlights" aria-label="NexCart benefits">
+            <span><strong>Curated</strong> products</span>
+            <span><strong>Simple</strong> checkout</span>
+            <span><strong>Fresh</strong> arrivals</span>
+          </div>
         </div>
-        
-        <div className="col-6">
-            <img className="img-fluid" src="https://bootstrapmade.com/content/demo/eStore/assets/img/product/product-f-9.webp"/>
+
+        <div className="home-image-wrap">
+          <div className="home-image-label">New season picks</div>
+          <img className="home-image" src="https://bootstrapmade.com/content/demo/eStore/assets/img/product/product-f-9.webp" alt="Featured fashion product" />
         </div>
-    </div>
+      </section>
+    </main>
   )
 }
 
